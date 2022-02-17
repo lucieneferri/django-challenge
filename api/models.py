@@ -5,7 +5,7 @@ from uuid import uuid4
 from django.forms import UUIDField
 
 class User(AbstractUser):
-    id_user = UUIDField(primary_key=True, default=uuid4, editable=False)
+    id_user = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     username = models.CharField(max_length=100, unique= True)
     password = models.CharField(max_length=10)
     email= models.EmailField(max_length=254, unique=True)
@@ -14,7 +14,7 @@ class User(AbstractUser):
         return self.username
 
 class Author(models.Model):
-    id_author = UUIDField(primary_key=True, default=uuid4, editable=False)
+    id_author = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(max_length=100)
     picture = models.ImageField()
 
@@ -22,7 +22,7 @@ class Author(models.Model):
         return self.name
 
 class Article(models.Model):
-    id_article = UUIDField(primary_key=True, default=uuid4, editable=False)
+    id_article = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     author = models.ForeignKey(Author, related_name='author', on_delete=models.PROTECT)
     category = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
