@@ -7,7 +7,7 @@ from django.forms import UUIDField
 class User(AbstractUser):
     id_user = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     username = models.CharField(max_length=100, unique= True)
-    password = models.CharField(max_length=10)
+    password = models.CharField(max_length=250)
     email= models.EmailField(max_length=254, unique=True)
 
     def __str__(self):
