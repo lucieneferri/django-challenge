@@ -56,6 +56,8 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ArticleSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer(read_only=True)
+    
     class Meta:
         model = Article
         fields = [
