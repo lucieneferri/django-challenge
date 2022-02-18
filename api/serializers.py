@@ -55,7 +55,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = '__all__'
 
-class ArticleSerializer(serializers.ModelSerializer):
+class ReadArticleSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
     
     class Meta:
@@ -69,7 +69,22 @@ class ArticleSerializer(serializers.ModelSerializer):
             'firstParagraph'
         ]
 
-class AdminArticleSerializer(serializers.ModelSerializer):
+class FullReadArticleSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer(read_only=True)
+    
+    class Meta:
+        model = Article
+        fields = [
+            'id_article',
+            'author',
+            'category',
+            'title',
+            'summary',
+            'firstParagraph',
+            'body'
+        ]
+
+class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = [
