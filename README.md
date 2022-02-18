@@ -210,7 +210,7 @@ docker-compose down
 }
 ```
 
-**Logged and Admin Users**
+**Authorized and Admin Users**
 
 **Path:** `api/article/d88b0c1d-761e-429d-adbd-fdf3c7fc77fd`
 
