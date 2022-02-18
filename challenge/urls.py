@@ -17,6 +17,6 @@ router.register(r'article', ArticleViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router,urls)),
-    path('/api/login/', views.obtain_auth_token),
+    path('api/', include(router.urls)),
+    path('api/login/', views.obtain_auth_token),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

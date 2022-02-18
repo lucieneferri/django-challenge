@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import User, Author, Article
+from api.models import User, Author, Article
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,7 +8,8 @@ class UserSerializer(serializers.ModelSerializer):
             'id_user',
             'username',
             'password',
-            'email'
+            'email',
+            'is_staff'
         ]
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -17,6 +18,18 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Article
+        fields = [
+            'id_article',
+            'author',
+            'category',
+            'title',
+            'summary',
+            'firstParagraph'
+        ]
+
+class AdminArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = [
